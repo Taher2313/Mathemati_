@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Mathemati is an online app that features over 24 different numerical methods that tackle different problems in mathematics, ranging from complicated problems like PDEs and ODEs that lack a closed form to other problems that you won't find elsewhere on the internet.">
+		<link rel="stylesheet" href="{{url_for('static', filename='css/Home.css')}}" />
+    <link
+      rel="stylesheet"  
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="icon" href="/M.png">
+    <title>Mathemati</title>
+  </head>
+  <body>
+    <div class="pyro" id="pyro">
+      <div class="before"></div>
+      <div class="after"></div>
+    </div>
+    <div class="navBar">
+      <nav>
+        <ul class="left-nav">
+          <li id="Curve"><a href="#">Curve Fitting</a></li> 
+          <li id="Surface"><a href="#">Surface Fitting</a></li>
+        </ul>
+
+        <ul class="right-nav">
+          <li id="Calculus"><a href="#">Calculus</a></li>
+          <li id="Differential"><a href="#">Differential Eqs.</a></li>
+          <li id="Systems"><a href="#">Systems of Eqs.</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="content">
+    <div class="logo">
+      <h1 class="Math">Mathemati<span>_</span></h1>
+      <h2 class="motto">We find <span id="x">x</span> for y<a href="/home-dynamic" id="love">o</a>u</h2>
+    </div>
+
+    <div class="searchBox" id="searchBox"   placeholder="">      
+      <form >
+        <input type="search" id="S"/>
+        <button class="searchIcon">
+            <i class="fa fa-search"></i>
+        </button>
+      </form>
+    </div>
+
+    <section class="hero">
+      <div class="family-container">
+        <div class="top-left">
+          <!-- <div class="quarter-circle-top-left"></div> -->
+          <svg width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M31 30V0C31 25.3151 24.8 30 0 30H31Z" fill="#262525"/>
+            </svg>
+            
+            
+        </div>
+
+        <div class="family"  >
+          <h3 id="family">Curve Fitting</h3>
+        </div>
+
+        <div class="top-right">
+          <!-- <div class="quarter-circle-top-right"></div> -->
+          <svg width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 30V0C0 25.3151 6.2 30 31 30H0Z" fill="#262525"/>
+            </svg>
+            
+        </div>
+      </div>
+
+      <div class="methods-container">
+        <div class="arrow"><a href="#" class="left" id="leftArrow"> 
+          
+        
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M28.2517 30.415L19.855 22L28.2517 13.585L25.6667 11L14.6667 22L25.6667 33L28.2517 30.415Z" fill="white"/>
+            </svg>
+            
+        
+        
+        
+        </a></div>
+        <div class="methods">
+          <ul id="methods"><li><a class="Mthd" href="#" > Least Squares Regression: LMA & The Normal Equation</a></li><li><a href="#"> Polynomial & Bézier Interpolation: Lagrange & Newton’s Method</a></li><li><a href="#"> Spline Interpolation: Linear, Quadratic & Cubic Polynomials</a></li><li id="methods_id"><a href="#"> Least Absolute Deviations: Iteratively Reweighted Least Squares</a></li>
+               <svg class= "Qmark" id="Qmark" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.5 0.583336C6.36998 0.583336 0.583313 6.37 0.583313 13.5C0.583313 20.63 6.36998 26.4167 13.5 26.4167C20.63 26.4167 26.4166 20.63 26.4166 13.5C26.4166 6.37 20.63 0.583336 13.5 0.583336ZM14.7916 22.5417H12.2083V19.9583H14.7916V22.5417ZM17.4654 12.5313L16.3029 13.7196C15.3729 14.6625 14.7916 15.4375 14.7916 17.375H12.2083V16.7292C12.2083 15.3083 12.7896 14.0167 13.7196 13.0738L15.3212 11.4463C15.7991 10.9813 16.0833 10.3354 16.0833 9.625C16.0833 8.20417 14.9208 7.04167 13.5 7.04167C12.0791 7.04167 10.9166 8.20417 10.9166 9.625H8.33331C8.33331 6.77042 10.6454 4.45834 13.5 4.45834C16.3546 4.45834 18.6666 6.77042 18.6666 9.625C18.6666 10.7617 18.2016 11.795 17.4654 12.5313Z" fill="#2E81FF"/>
+                </svg>
+          </ul>
+        </div>
+        <div class="arrow">
+          <a href="#" class="right"  id="rightArrow"> 
+            
+          
+            <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15.7484 30.415L24.145 22L15.7484 13.585L18.3334 11L29.3334 22L18.3334 33L15.7484 30.415Z" fill="white"/>
+              </svg>
+              
+          
+          </a>
+          
+        </div>
+      </div>
+    </section>
+      </div>
+
+
+
+
+    <div class="footer">
+      <h4 class="Cont"> <a href="{{url_for('Contact')}}">Contact Us</a></h4>
+      <h4 id='Cairo'>Copyright &copy; 2021 <span id='Uni'>Cairo University</span>, &nbsp;  All Rights Reserved.</h4>
+      <h4 class="Cont"> <a href="/Credits">Credits</a></h4>
+
+
+
+
+
+
+      </div>
+
+
+      <div class="tooltip" id="tooltip"> This section involves methods that tackle interpolation and curve fitting problems. To know more about any of the methods, check the PDF document by clicking on the book icon that's within the method's page.</div>
+    </div>
+  </body>
+
+
+
+	<script src="{{url_for('static', filename='js/Home.js')}}" charset="utf-8"></script>
+
+
+</html>
