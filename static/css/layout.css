@@ -1,0 +1,30 @@
+* {
+  box-sizing: content-box;
+}
+
+#credits:hover, #contact:hover {
+  color: #00FF88;
+}
+
+input {
+transition: 0.3s;
+}
+
+.video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+	background: rgba(255, 255, 255, 0.12);
+	z-index: 120;
+	display: none;
+}
+
+.video iframe {
+	position: absolute;
+	top: 50% !important;
+	left: 50% !important;
+	transform: translate(-50%, -50%);
+}

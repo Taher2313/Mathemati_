@@ -1,0 +1,376 @@
+﻿{% extends "layout.html" %}
+{% block content %}
+
+	<main>
+		<div id="Web_1920___1">
+			<div id="MidTab">
+
+				<svg class="Rectangle_8">
+					<rect fill="rgba(60,60,60,1)" id="Rectangle_8" rx="1.5vw" ry="1.5vw" x="0" y="0" width="21.5vw" height="21.65vw">
+					</rect>
+				</svg>
+				<svg class="Rectangle_8-5">
+					<rect fill="#282828" id="Rectangle_8.5" rx="0.8vw" ry="0.8vw" x="0" y="0" width="18.5vw" height="18.65vw">
+					</rect>
+				</svg>
+				<section id="plot">
+					<div id="myFunction" class="Rectangle_8"></div>
+				</section>
+			</div>
+			<div id="LeftTap">
+				<svg class="Rectangle_3">
+					<rect fill="rgba(60,60,60,1)" id="Rectangle_3" rx="1.5vw" ry="1.5vw" x="0" y="0" width="22.98vw" height="35.9vw">
+					</rect>
+				</svg>
+				<svg class="Rectangle_2">
+					<rect fill="rgba(60,60,60,1)" id="Rectangle_2" rx="1.5vw" ry="1.5vw" x="0" y="0" width="7.1vw" height="4.23vw">
+					</rect>
+				</svg>
+				<svg class="Path_1" viewBox="127.353 288 21.742 20.791">
+					<path fill="rgba(60,60,60,1)" id="Path_1" d="M 127.3529815673828 288 C 139.6577301025391 288.034423828125 149.3477172851563 294.8020629882813 149.0894622802734 306.1839294433594 C 148.8312377929688 317.5657653808594 149.0894622802734 288 149.0894622802734 288 L 127.3529815673828 288 Z">
+					</path>
+				</svg>
+				<svg class="Path_2" viewBox="127.353 288 21.742 20.791">
+					<path fill="rgba(60,60,60,1)" id="Path_2" d="M 149.0945129394531 288 C 136.7897644042969 288.034423828125 127.0997924804688 294.8020629882813 127.358024597168 306.1839294433594 C 127.6162490844727 317.5657653808594 127.358024597168 288 127.358024597168 288 L 149.0945129394531 288 Z">
+					</path>
+				</svg>
+				<svg class="Rectangle_4">
+					<rect fill="rgba(60,60,60,1)" id="Rectangle_4" rx="1.5vw" ry="1.5vw" x="0" y="0" width="3.84vw" height="21vw">
+					</rect>
+				</svg>
+				<div id="System">
+					<svg class="Ellipse_3_o">
+						<radialGradient id="Ellipse_3_o" spreadMethod="pad" x1="0" x2="0" y1="0" y2="0">
+							<stop offset="0" stop-color="#151515" stop-opacity="1"></stop>
+							<stop offset="1" stop-color="#1c1c1c" stop-opacity="0"></stop>
+						</radialGradient>
+						<ellipse fill="url(#Ellipse_3_o)" id="Ellipse_3_o" rx="1.7vw" ry="1.8vw" cx="1.7vw" cy="1.8vw">
+						</ellipse>
+					</svg>
+					<img class="points" src="{{url_for('static', filename='HoverAnimations/DFD/DFD0000.png')}}">
+				</div>
+			</div>
+			<div id="LeffTapCon">
+        <form action="{{url_for('Differentiation')}}" method="POST">
+
+				<svg class="Rectangle_18">
+					<rect fill="rgba(40,40,40,1)" id="Rectangle_18" rx="1.55vw" ry="1.55vw" x="0" y="0" width="20.25vw" height="18vw">
+					</rect>
+				</svg>
+				<div class="Rectangle_28">
+                    <div class="button-div">
+                        <button type="submit" onclick="addtograph()" class="table-button" id="calc">
+                            <img src="{{url_for('static', filename='Assets/Diff Button.svg')}}" title="Calculate">
+                        </button>
+                        <img class="strk" src="{{url_for('static', filename='Assets/Storked-Copy.svg')}}">
+                        <button type="button" id="videoButton" class="table-button" onclick="showVideo('{{url}}')">
+                            <img src="{{url_for('static', filename='Assets/Vid.svg')}}" title="Page Instructions">
+                        </button>
+                        <img class="strk" src="{{url_for('static', filename='Assets/Storked-Copy.svg')}}">
+                        <button type="button" class="table-button" onclick="window.open('{{url_for("static", filename="Reports/D.pdf")}}')">
+                            <img src="{{url_for('static', filename='Assets/REF Button.svg')}}" title="Downlaod Guide">
+                        </button>
+                        <img class="strk" src="{{url_for('static', filename='Assets/Storked-Copy.svg')}}">
+                        <button type="button" class="table-button" id="save">
+                            <img src="{{url_for('static', filename='Assets/Save.svg')}}\" title="Save Your Data">
+                        </button>
+                        <img class="strk" src="{{url_for('static', filename='Assets/Storked-Copy.svg')}}">
+                        <button type="button" class="table-button" id="load">
+                            <img src="{{url_for('static', filename='Assets/Load.svg')}}" title="Upload Your Data">
+                        </button>
+                        <img class="strk" src="{{url_for('static', filename='Assets/Storked-Copy.svg')}}">
+                        <button type="button" class="table-button" id="clear">
+                            <img src="{{url_for('static', filename='Assets/Clear.svg')}}" title="Clear Input Fields">
+                        </button>
+                    </div>
+				</div>
+				<div id="Non_Linearized_">
+					<input
+					type="radio"
+					id="Non-Linearized"
+					name="Method"
+					value="Function"
+					{% if Method=="Function"%}
+		      checked
+		      {% endif %}>
+					<label for="Non-Linearized">
+						<span>Function:</span>
+						<input type="text" class="Rectangle_43" style="text-align: left" onfocusout="addtograph()"
+						name="Function"  value="{{request.form['Function']}}" />
+					</label>
+				</div>
+
+				<div id="Best_Fitting_Family_of_Curves">
+					<input type="radio"
+					id="Linearized"
+					name="Method"
+					value="Table"
+					{% if Method=="Table" %}
+		      checked
+		      {% endif %}>
+					<label for="Linearized"
+					name="Table"
+					value="Table"
+					><span>Table:</span></label>
+				</div>
+
+				<div id="Number_of_iterations__">
+					<span>Calculation Point ( x<span style="font-size:0.7vw">n</span> ) =</span>
+				</div>
+				<div id="Stopping_Criteria__s___">
+					<span>Order of Extrapolation ( K ) =</span>
+				</div>
+				<div id="Stopping_Criteria__s___s">
+					<span>Minimum Step ( h<span style="font-size:0.7vw">min</span> ) =</span>
+				</div>
+
+				<input type="text" class="Path_6" name="order" value="{{request.form['order']}}" />
+				<input type="text" class="Path_6s" name="step" value="{{request.form['step']}}"/>
+
+				<input type="text" class="Rectangle_18s" name="Calculation Point" value="{{request.form['Calculation Point']}}" />
+
+				<div class="Rectangle_55">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>x</th>
+								<th>y</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><input type="text" name="x0" onkeyup="Scatter(this)" value="{{request.form['x0']}}" /></td>
+								<td><input type="text" name="y0" onkeyup="Scatter(this)" value="{{request.form['y0']}}"/> </td>
+
+							</tr>
+							<tr>
+								<td><input type="text" name="x1" onkeyup="Scatter(this)" value="{{request.form['x1']}}"/></td>
+								<td><input type="text" name="y1" onkeyup="Scatter(this)" value="{{request.form['y1']}}"/></td>
+
+							</tr>
+							<tr>
+								<td><input type="text" name="x2" onkeyup="Scatter(this)" value="{{request.form['x2']}}"></td>
+								<td><input type="text" name="y2" onkeyup="Scatter(this)" value="{{request.form['y2']}}"/></td>
+							</tr>
+							<tr>
+								<td><input type="text" name="x3" onkeyup="Scatter(this)" value="{{request.form['x3']}}"/></td>
+								<td><input type="text" name="y3" onkeyup="Scatter(this)" value="{{request.form['y3']}}"/></td>
+
+							</tr>
+							<tr>
+								<td><input type="text" name="x4" onkeyup="Scatter(this)" value="{{request.form['x4']}}"/></td>
+								<td><input type="text" name="y4" onkeyup="Scatter(this)" value="{{request.form['y4']}}"/></td>
+
+							</tr>
+							<tr>
+								<td><input type="text" name="x5" onkeyup="Scatter(this)" value="{{request.form['x5']}}"/></td>
+								<td><input type="text" name="y5" onkeyup="Scatter(this)" value="{{request.form['y5']}}"/></td>
+
+							</tr>
+							<tr>
+								<td><input type="text" name="x6" onkeyup="Scatter(this)" value="{{request.form['x6']}}"/></td>
+								<td><input type="text" name="y6" onkeyup="Scatter(this)" value="{{request.form['y6']}}"/></td>
+
+							</tr>
+							<tr>
+								<td><input type="text" name="x7" onkeyup="Scatter(this)" value="{{request.form['x7']}}"/></td>
+								<td><input type="text" name="y7" onkeyup="Scatter(this)" value="{{request.form['y7']}}"/></td>
+
+							</tr>
+							<tr>
+								<td><input type="text" name="x8" onkeyup="Scatter(this)" value="{{request.form['x8']}}"/></td>
+								<td><input type="text" name="y8" onkeyup="Scatter(this)" value="{{request.form['y8']}}"/></td>
+
+							</tr>
+							<tr>
+								<td><input type="text" name="x9" onkeyup="Scatter(this)" value="{{request.form['x9']}}"/></td>
+								<td><input type="text" name="y9" onkeyup="Scatter(this)" value="{{request.form['y9']}}"/></td>
+
+							</tr>
+							<tr>
+								<td><input type="text" name="x10" onkeyup="Scatter(this)" value="{{request.form['x10']}}"/></td>
+								<td><input type="text" name="y10" onkeyup="Scatter(this)" value="{{request.form['y10']}}"/></td>
+
+							</tr>
+							<tr>
+								<td><input type="text" name="x11" onkeyup="Scatter(this)" value="{{request.form['x11']}}"/></td>
+								<td><input type="text" name="y11" onkeyup="Scatter(this)" value="{{request.form['y11']}}"/></td>
+
+							</tr>
+							<tr>
+								<td><input type="text" name="x12" onkeyup="Scatter(this)" value="{{request.form['x12']}}"/></td>
+								<td><input type="text" name="y12" onkeyup="Scatter(this)" value="{{request.form['y12']}}"/></td>
+
+							</tr>
+							<tr>
+								<td><input type="text" name="x13" onkeyup="Scatter(this)" value="{{request.form['x13']}}"/></td>
+								<td><input type="text" name="y13" onkeyup="Scatter(this)" value="{{request.form['y13']}}"/></td>
+
+							</tr>
+							<tr>
+								<td><input type="text" name="x14" onkeyup="Scatter(this)" value="{{request.form['x14']}}"/></td>
+								<td><input type="text" name="y14" onkeyup="Scatter(this)" value="{{request.form['y14']}}"/></td>
+
+							</tr>
+							<tr>
+								<td><input type="text" name="x15" onkeyup="Scatter(this)" value="{{request.form['x15']}}"/></td>
+								<td><input type="text" name="y15" onkeyup="Scatter(this)" value="{{request.form['y15']}}"/></td>
+
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td><input type="text" name="x16" onkeyup="Scatter(this)" value="{{request.form['x16']}}"/></td>
+								<td><input type="text" name="y16" onkeyup="Scatter(this)" value="{{request.form['y16']}}"/></td>
+							</tr>
+						</tfoot>
+					</table>
+
+
+				</div>
+			</div>
+		</form>
+			<div id="NCITab">
+				<svg class="Rectangle_6">
+					<rect fill="rgba(60,60,60,1)" id="Rectangle_6" rx="1.5vw" ry="1.5vw" x="0" y="0" width="7.16vw" height="4.56vw">
+					</rect>
+				</svg>
+				<svg class="Rectangle_7">
+					<rect fill="rgba(60,60,60,1)" id="Rectangle_7" rx="1.5vw" ry="1.5vw" x="0" y="0" width="26vw" height="4.56vw">
+					</rect>
+				</svg>
+
+				<div id="Brackets">
+					<svg class="Ellipse_4_bp">
+						<radialGradient id="Ellipse_4_bp" spreadMethod="pad" x1="0" x2="0" y1="0" y2="0">
+							<stop offset="0" stop-color="#181818" stop-opacity="1"></stop>
+							<stop offset="1" stop-color="#1b1b1b" stop-opacity="0"></stop>
+						</radialGradient>
+						<ellipse fill="url(#Ellipse_4_bp)" id="Ellipse_4_bp" rx="1.45vw" ry="1.5vw" cx="1.45vw" cy="1.5vw">
+						</ellipse>
+					</svg>
+					<img id="NCI0049" src="{{url_for('static', filename='HoverAnimations/1DV.png')}}">
+				</div>
+			</div>
+			<div id="RI">
+				{%if results %}
+					<input type="text" class="Rectangle_32_cm" disabled value="{{results[0]}}" />
+					<input type="hidden" class="Rectangle_32_hidden" disabled value="{{Tango}}" />
+	        		{% if Method == "Function" %}
+						<input type="text" class="Rectangle_36_cm" disabled value="{{results[1]}}"/>
+					{%else%}
+						<input type="text" class="Rectangle_36_cm" disabled />
+					{%endif%}
+				{%else%}
+					<input type="text" class="Rectangle_32_cm" disabled />
+					<input type="text" class="Rectangle_36_cm" disabled/>
+				{%endif%}
+
+				<div id="I____cn">
+					<span>f '(x<span style="font-size:0.7vw">n</span>) = </span>
+					<div id="Error__EG">
+						<span>Error =</span>
+					</div>
+				</div>
+				<div id="Newton_Cotes_">
+					<span>First Derivative:</span>
+				</div>
+			</div>
+			<div id="RITab">
+				<svg class="Rectangle_6_by">
+					<rect fill="rgba(60,60,60,1)" id="Rectangle_6_by" rx="1.5vw" ry="1.5vw" x="0" y="0" width="7.16vw" height="4.56vw">
+					</rect>
+				</svg>
+				<svg class="Rectangle_7_bz">
+					<rect fill="rgba(60,60,60,1)" id="Rectangle_7_bz" rx="23" ry="23" x="0" y="0" width="26vw" height="4.56vw">
+					</rect>
+				</svg>
+				<div id="Brackets_b">
+					<svg class="Ellipse_4_ca">
+						<radialGradient id="Ellipse_4_ca" spreadMethod="pad" x1="0" x2="0" y1="0" y2="0">
+							<stop offset="0" stop-color="#181818" stop-opacity="1"></stop>
+							<stop offset="1" stop-color="#1b1b1b" stop-opacity="0"></stop>
+						</radialGradient>
+						<ellipse fill="url(#Ellipse_4_ca)" id="Ellipse_4_ca" rx="1.45vw" ry="1.5vw" cx="1.45vw" cy="1.5vw">
+						</ellipse>
+					</svg>
+					<img id="NCA0049" src="{{url_for('static', filename='HoverAnimations/DFD/DFD0055.png')}}">
+				</div>
+			</div>
+			<div id="GQI">
+
+				{%if results %}
+	        		{% if Method == "Function" %}
+	        			<input type="text" class="Rectangle_32_cm" disabled value="{{results[2]}}" />
+						<input type="text" class="Rectangle_36_cm" disabled value="{{results[3]}}"/>
+					{%else%}
+						<input type="text" class="Rectangle_32_cm" disabled value="{{results[1]}}" />
+						<input type="text" class="Rectangle_36_cm" disabled />
+					{%endif%}
+				{%else%}
+					<input type="text" class="Rectangle_32_cm" disabled />
+					<input type="text" class="Rectangle_36_cm" disabled/>
+				{%endif%}
+
+				<div id="I____cn">
+					<span>f "(x<span style="font-size:0.7vw">n</span>) = </span>
+					<div id="Error__EG">
+						<span>Error =</span>
+					</div>
+				</div>
+				<div id="Romberg_">
+					<span>Second Derivative:</span>
+				</div>
+			</div>
+			<div id="GQITab">
+				<svg class="Rectangle_6_cf">
+					<rect fill="rgba(60,60,60,1)" id="Rectangle_6_cf" rx="1.5vw" ry="1.5vw" x="0" y="0" width="7.16vw" height="4.56vw">
+					</rect>
+				</svg>
+				<svg class="Rectangle_7_cg">
+					<rect fill="rgba(60,60,60,1)" id="Rectangle_7_cg" rx="1.5vw" ry="1.5vw" x="0" y="0" width="26vw" height="4.56vw">
+					</rect>
+				</svg>
+				<div id="Brackets_ch">
+					<svg class="Ellipse_4_cj">
+						<radialGradient id="Ellipse_4_cj" spreadMethod="pad" x1="0" x2="0" y1="0" y2="0">
+							<stop offset="0" stop-color="#181818" stop-opacity="1"></stop>
+							<stop offset="1" stop-color="#1b1b1b" stop-opacity="0"></stop>
+						</radialGradient>
+						<ellipse fill="url(#Ellipse_4_cj)" id="Ellipse_4_cj" rx="1.45vw" ry="1.5vw" cx="1.45vw" cy="1.5vw">
+						</ellipse>
+					</svg>
+					<img id="GQI0038" src="{{url_for('static', filename='HoverAnimations/3DV.png')}}">
+				</div>
+			</div>
+			<div id="NCI">
+				{%if results %}
+	        		{% if Method == "Function" %}
+	        			<input type="text" class="Rectangle_32_cm" disabled value="{{results[4]}}" />
+						<input type="text" class="Rectangle_36_cm" disabled value="{{results[5]}}"/>
+					{%else%}
+						<input type="text" class="Rectangle_32_cm" disabled value="{{results[2]}}" />
+						<input type="text" class="Rectangle_36_cm" disabled />
+					{%endif%}
+				{%else%}
+					<input type="text" class="Rectangle_32_cm" disabled />
+					<input type="text" class="Rectangle_36_cm" disabled/>
+				{%endif%}
+
+				<div id="I____cn">
+					<span>f "'(x<span style="font-size:0.7vw">n</span>) = </span>
+					<div id="Error__EG">
+						<span>Error =</span>
+					</div>
+				</div>
+				<div id="Gauss_Quadrature_">
+					<span>Third Derivative:</span>
+				</div>
+			</div>
+		</div>
+
+
+	</main>
+
+	<script src="{{url_for('static', filename='js/Differentiation.js')}}" charset="utf-8"></script>
+{% endblock content %}
